@@ -5,6 +5,4 @@ config :maru, ElmUI.API,
 
 config :elm_ui_api, ElmUI.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: "elixir-api",
-  username: "postgres",
-  password: "postgres"
+  url: System.get_env("DATABASE_URL") || "ecto://postgres:postgres@localhost/elixir-api"
