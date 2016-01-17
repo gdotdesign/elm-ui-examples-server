@@ -8,8 +8,14 @@ defmodule ElmUI.API do
                 allow_credentials: true,
                 allow_headers: ["content-type"]
 
+  plug Plug.Static, at: "/", from: "public"
+
   mount ElmUI.Router.Videos
   mount ElmUI.Router.Folders
+
+  get do
+    send_file conn, 200, "./public/index.html"
+  end
 
   group "video-library" do
     params do
