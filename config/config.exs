@@ -1,7 +1,7 @@
 use Mix.Config
 
 config :maru, ElmUI.API,
-  http: [port: 8002]
+  http: [port: System.get_env("PORT") || 8002]
 
 config :elm_ui_api, ElmUI.Repo,
   adapter: Ecto.Adapters.Postgres,
